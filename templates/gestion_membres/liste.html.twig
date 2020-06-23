@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2 class="text-center"> la liste de membres effectifs</h2>
+    <div class="table-responsive">
+         <table class="table table-striped  mx-auto" >
+          <thead>
+            <tr class="text-center"><th>Nom </th><th>Postnom </th><th>Prenom</th>
+                <th>fonction</th><th>sexe</th><th>Etat-civil</th>
+                <th>Telephone</th><th>Date d'enregistrement</th><th>Avenue</th>
+                <th>numero</th><th>quartier</th><th>commune</th><th>actions</th></tr>
+          </thead>
+          <tbody>
+            {% for membre in membres %}
+            <tr class="text-center"><td>{{ membre.nom }}</td><td>{{ membre.postnom }}</td><td>{{ membre.prenom }}</td>
+              <td>{{ membre.fonctionAssumee }}</td><td>{{ membre.sexe }}</td><td>{{ membre.etatCivil }}</td>
+              <td>{{ membre.telephone }}</td><td>{{ membre.dateEnregistrement | date('d/m/Y') }}</td><td>{{ membre.adresseAvenue }}</td>
+              <td>{{ membre.adresseNumero }}</td><td>{{ membre.adresseQuartier }}</td><td>{{ membre.adresseCommune }}</td>
+              <td>
+                <a href="{{ path('edit_membre',{"id": membre.id}) }}" class="btn btn-warning" onclick="return confirm('voulez-vous vraiment supprimer ce 
+                            membre de votre base de données???')">modifier</a>
+              </td>
+              <td>
+                <a href="{{ path('delete_membre',{"id": membre.id}) }}" class="btn btn-danger" onclick="return confirm('voulez-vous vraiment supprimer ce 
+                            membre de votre base de données???')">supprimer</a>
+              </td>
+            </tr>
+
+          {% endfor %}
+
+          </tbody>
+	        
+        
+    </table>
+    </div>
+{% endblock %}

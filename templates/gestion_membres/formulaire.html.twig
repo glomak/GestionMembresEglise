@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2 class="text-center">Enregistrement membre</h2>
+    {{ form_start(formulaire) }}
+    <div class="col-lg-6 ml-auto mr-auto">
+        <div class="form-group">
+            {{ form_row(formulaire.nom, {'attr': {'placeholder': "Nom", 'class': "form-control"}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.postnom, {'attr': {'placeholder': "Postnom", 'class': "form-control"}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.prenom, {'attr': {'placeholder': "Prenom", 'class': "form-control"}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.fonctionAssumee, {'attr': {'placeholder': "Quelle est la fonction que vous occupez à l'église!!!", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.sexe, {'attr': {'placeholder': "Sexe", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.EtatCivil, {'attr': {'placeholder': "Etat civil", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.telephone, {'attr': {'placeholder': "Téléphone", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.adresseAvenue, {'attr': {'placeholder': "Avenue", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.adresseNumero, {'attr': {'placeholder': "Numero", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.adresseQuartier, {'attr': {'placeholder': "Quartier", 'class': "form-control "}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(formulaire.adresseCommune, {'attr': {'placeholder': "Commune", 'class': "form-control "}}) }}
+        </div>
+        <button type="submit" class="btn btn-success">
+            {% if editMode %}
+                Modifier membre
+            {% else %}
+                Ajouter membre
+            {% endif %}
+        </button>
+    </div>
+    {{ form_end(formulaire) }}
+{% endblock %}
